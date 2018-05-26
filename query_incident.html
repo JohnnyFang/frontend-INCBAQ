@@ -30,59 +30,50 @@
           </div>
         </div>
       </div>
+      <div style="padding-top:49px;">
+      </div>
+      <table id="example" class="display" style="width:100%">
+          <thead>
+              <tr>
+                  <th>Name</th>
+                  <th>Position</th>
+                  <th>Office</th>
+                  <th>Age</th>
+                  <th>Start date</th>
+                  <th>Salary</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td>Tiger Nixon</td>
+                  <td>System Architect</td>
+                  <td>Edinburgh</td>
+                  <td>61</td>
+                  <td>2011/04/25</td>
+                  <td>$320,800</td>
+              </tr>
+            </tbody>
+          </table>
     </div>
-    <div style="padding-top:49px;">
-    </div>
-    <table id="example" class="display" style="width:100%">
-        <thead>
-            <tr>
-                <!-- <th>Calificacion</th> -->
-                <th>Categoria</th>
-                <!-- <th>cod Cat</th> -->
-                <!-- <th>Cod INC</th> -->
-                <!-- <th>Cod Pred</th> -->
-                <th>Descripcion</th>
-                <th>Predio</th>
-                <th>Usuario</th>
-                <th>Creado</th>
-            </tr>
-        </thead>
-        </table>
-  </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="dist/js/loadNavbar.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
-  <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-  <script>
-    $(document).ready(function() {
-      $('#example').DataTable( {
-          "language": {
-            "url": "http://cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
-          },
-          "processing": true,
-          "serverSide": true,
-          columns: [
-              // { data: 'CALIFICACION' },
-              { data: 'CATEGORIA' },
-              // { data: 'CODCATEGORIA' },
-              // { data: 'CODINCIDENCIA' },
-              // { data: 'CODPREDIO' },
-              { data: 'DESCRIPCION' },
-              { data: 'PREDIO' },
-              { data: 'USUARIO' },
-              { data: 'created_at' },
-          ],
-          "ajax": {
-              "url": "http://206.81.15.248:3000/api/incidencias",
-              "dataType": "json",
-              "dataSrc": function ( json ) {
-                return json;
-              }
-          },
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        $('#example').DataTable( {
+            // "processing": true,
+            // "serverSide": true,
+            "ajax": {
+                "url": "http://206.81.15.248:3000/api/categorias",
+                "dataType": "json"
+            },
+        } );
       } );
 
       // $(document).ready(function() {
