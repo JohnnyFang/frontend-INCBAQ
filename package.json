@@ -1,0 +1,23 @@
+{
+  "name": "frontend-INCBAQ",
+  "version": "1.0.0",
+  "description": "we are using HackerTheme's Vibrant Sea https://github.com/HackerThemes/theme-machine   \r example of the template's components https://hackerthemes.com/bootstrap-themes/vibrant-sea",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JohnnyFang/frontend-INCBAQ.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JohnnyFang/frontend-INCBAQ/issues"
+  },
+  "homepage": "https://github.com/JohnnyFang/frontend-INCBAQ#readme",
+  "dependencies": {
+    "jquery": "^3.3.1"
+  }
+}

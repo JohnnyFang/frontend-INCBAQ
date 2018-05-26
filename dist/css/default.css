@@ -1,0 +1,83 @@
+html, body{ 
+    width: 100% !important;
+    margin: 0;
+    padding: 0;
+}
+
+
+.bg-header{
+    background-image: url("../images/IntendenciaFluvial.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position-y: center;
+    border-bottom: 3px solid #f7931e;
+    border-radius: 0 0 30px 30px;
+}
+
+.bg-semaforo{
+    background-image: url('../images/trafficLight.jpg'); 
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position-y: center;
+    padding: 200px 0;
+    margin: 0 20px;
+    border-radius: 50px 50px 50px 50px;
+}
+
+.bg-energy{
+    background-image: url('../images/electricityEnergy.jpg'); 
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position-y: center;
+    padding: 200px 0;
+    margin: 0 20px;
+    border-radius: 50px 50px 50px 50px;
+}
+
+.bg-gargabe{
+    background-image: url('../images/garbage.jpg'); 
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position-y: center;
+    padding: 50px 0 350px 0;
+    margin: 0 20px;
+    border-radius: 50px 50px 50px 50px;
+}
+
+footer{
+    margin-top: 1rem !important;
+}
+
+.text-footer{
+    margin-top: 40px;
+    text-align: center; 
+    vertical-align: middle;
+    color:  whitesmoke;
+}
+
+.footer-border{
+    border-style: solid;
+    border-width: 5px 0 0 0;
+    border-color: #2057ac;
+    /*border: 2px solid red;*/
+    border-radius: 50px 50px 0 0;
+}
+
+.border-inside-footer{
+    border-style: solid;
+    border-width: 0 2px 0 0;
+    border-color: whitesmoke;
+}
+
+.bg-footer{
+    /*background-color: #f7931e;*/
+    /*background-color: #CDA16B;*/
+    background-color:#00265F;
+}
+
+.hashtag-footer{
+    color: white;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-decoration: underline;
+}

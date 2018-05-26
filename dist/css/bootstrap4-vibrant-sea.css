@@ -5237,7 +5237,8 @@ button.close {
   vertical-align: text-top !important; }
 
 .bg-primary {
-  background-color: #0f90ff !important; }
+  /*background-color: #0f90ff !important;*/
+  background-color: #2057AC !important;}
 
 a.bg-primary:hover, a.bg-primary:focus,
 button.bg-primary:hover,
