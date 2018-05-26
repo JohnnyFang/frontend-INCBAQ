@@ -47,36 +47,17 @@
         </nav>
 
   <div class="container py-1">
-    <h2 class="display-5 ht-tm-component-title">Consultar Incidentes</h2>
-    <!-- <div class="ht-tm-componentsblock">
-      <div class="ht-tm-cat">
-        <h5 class="ht-tm-cat-title">Shadowy Buttons</h5>
+    <h2 class="display-5 ht-tm-component-title">Categorias</h2>
 
-        <p>Some eye candy for the buttons. Use <code>btn-shadow</code> to give buttons a 3D shadow.</p>
-        <div class="ht-tm-codeblock">
-          <div class="ht-tm-element input-group mb-3">
-            <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
-            <div class="input-group-append">
-              <button class="btn btn-primary" type="button">Go!</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> -->
     <div style="padding-top:49px;">
     </div>
     <table id="example" class="display" style="width:100%">
         <thead>
             <tr>
-                <!-- <th>Calificacion</th> -->
                 <th>Categoria</th>
-                <!-- <th>cod Cat</th> -->
-                <!-- <th>Cod INC</th> -->
-                <!-- <th>Cod Pred</th> -->
                 <th>Descripcion</th>
-                <th>Predio</th>
-                <th>Usuario</th>
-                <th>Creado</th>
+                <th>Nombre</th>
+                <th>Vigente</th>
             </tr>
         </thead>
         </table>
@@ -90,6 +71,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
   <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
   <script>
+
     $(document).ready(function() {
       $('#example').DataTable( {
           "language": {
@@ -98,18 +80,13 @@
           "processing": true,
           "serverSide": true,
           columns: [
-              // { data: 'CALIFICACION' },
-              { data: 'CATEGORIA' },
-              // { data: 'CODCATEGORIA' },
-              // { data: 'CODINCIDENCIA' },
-              // { data: 'CODPREDIO' },
+              { data: 'CODCATEGORIA' },
               { data: 'DESCRIPCION' },
-              { data: 'PREDIO' },
-              { data: 'USUARIO' },
-              { data: 'created_at' },
+              { data: 'NOMBRE' },
+              { data: 'VIGENTE' },
           ],
           "ajax": {
-              "url": "http://206.81.15.248:3000/api/incidencias",
+              "url": "http://206.81.15.248:3000/api/categorias",
               "dataType": "json",
               "dataSrc": function ( json ) {
                 return json;
