@@ -1,86 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>IncBAQ</title>
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Oswald:300,400|Roboto:400,700" rel="stylesheet">
-  <link rel="stylesheet" href="dist/css/bootstrap4-vibrant-sea.min.css">
-</head>
-<body>
-<nav id="navigation-bar"></nav>
-<div class="container py-5">
-  <div class="row align-items-center">
-    <div class="col-sm-6 offset-md-3">
-      <div class="card">
-        <div class="card-body">
-          <!-- <h6 class="card-title">Start with a small group form</h6> -->
-          <div class="ht-tm-codeblock ht-tm-btn-replaceable ht-tm-element ht-tm-element-inner">
-            <form id="signupForm" action="http://206.81.15.248:3000/api/users/signup" method="post">
-              <div  id="errorSpan" class='error-message'></div>
-              <div class="form-group">
-                <label for="exampleInputEmail1">Nombres</label>
-                <input name="nombres" class="form-control" type="text" value="" id="example-text-input" placeholder="">
-              </div>
-              <div class="form-group">
-                <label for="exampleInputEmail1">Correo Electronico</label>
-                <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
-                <small id="emailHelp" class="form-text text-muted">Nosotros jamas compartiremos tu correo electronico</small>
-              </div>
-              <div class="form-group">
-                <label for="InputPassword">Contraseña</label>
-                <div class="ht-tm-element ht-tm-element-inner">
-                  <input name="password" class="form-control" type="password" value="" id="example-password-input">
-                </div>
-              </div>
-              <input hidden name="tipo_usuario" value="1">
-              <button type="submit" id="submitButton" class="btn btn-primary">Ingresar</button>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>IncBAQ</title>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald:300,400|Roboto:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="dist/css/bootstrap4-vibrant-sea.min.css">
+  </head>
+  <body>
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary ht-tm-element">
+          <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+          data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <!-- <a class="navbar-brand" href="#!">Navbar</a> -->
+
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <ul class="navbar-nav mr-auto mt-2 mt-md-0">
+              <li class="nav-item active">
+                <a class="nav-link" href="#!">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="#!">Incidentes</a>
+              </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+              <ul class="navbar-nav mr-auto mt-2 mt-md-0">
+                <li class="nav-item active">
+                  <a class="nav-link " href="#!">Iniciar Sesion <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="#!">Registrarme</a>
+                </li>
+
+              </ul>
             </form>
+          </div>
+        </nav>
+        <div class="container py-5">
+          <div class="row align-items-center">
+            <div class="col-sm-6 offset-md-3">
+              <div class="card">
+                <div class="card-body">
+                  <!-- <h6 class="card-title">Start with a small group form</h6> -->
+
+                  <div class="ht-tm-codeblock ht-tm-btn-replaceable ht-tm-element ht-tm-element-inner">
+                    <form  id="loginForm" action="http://206.81.15.248:3000/api/users/login" method="post">
+                     <!-- <form  id="loginForm" method="post"> -->
+                     <div  id="errorSpan" class='error-message'></div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Correo Electronico</label>
+                        <input name="email" type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Entre Correo Electronico">
+                        <small id="emailHelp" class="form-text text-muted">Nosotros jamas compartiremos tu correo electronico</small>
+                      </div>
+                      <div class="form-group">
+                        <label for="InputPassword">Contraseña</label>
+                        <div class="ht-tm-element ht-tm-element-inner">
+                          <input class="form-control" name="password" type="password" value="" id="example-password-input">
+                        </div>
+                      </div>
+                      <button  type="submit" id="submitButton"  name="submitButton" value="Submit" class="btn btn-primary">Ingresar</button>
+                    </form>
+
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="dist/js/loadNavbar.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+    integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+    <script type='text/javascript'>
+        /* attach a submit handler to the form */
+        $("#loginForm").submit(function(event) {
+          /* stop form from submitting normally */
+          event.preventDefault();
 
-<script src="node_modules/jquery/dist/jquery.min.js"></script>
-<script src="dist/js/loadNavbar.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
-<script type='text/javascript'>
-    /* attach a submit handler to the form */
-    $("#signupForm").submit(function(event) {
-        /* stop form from submitting normally */
-        event.preventDefault();
-
-        /* get the action attribute from the <form action=""> element */
-        var $form = $( this ),
-            method = $form.attr('method'),
-            url = $form.attr( 'action' );
-        $.ajax({
-            type: method,
-            url: url,
-            data: $form.serialize(),
-            success: function (data) {
-                console.log('Submission was successful.');
-                console.log(data);
-                var response_data = data;
-                window.sessionStorage.token = response_data.token;
-                window.sessionStorage.user = response_data.user.NOMBRES;
-                window.location = "index.html"
-                console.log(window.sessionStorage);
-            },
-            error: function (data) {
-                console.log('An error occurred.');
-                $(".error-message").empty().append('Invalid Credentials');
-            },
+          /* get the action attribute from the <form action=""> element */
+          var $form = $( this ),
+              method = $form.attr('method'),
+              url = $form.attr( 'action' );
+          $.ajax({
+              type: method,
+              url: url,
+              data: $form.serialize(),
+              success: function (data) {
+                  console.log('Submission was successful.');
+                  console.log(data);
+                  var response_data = data;
+                  window.sessionStorage.token = response_data.token;
+                  window.sessionStorage.user = response_data.user.NOMBRES;
+                  window.location = "index.html"
+                  console.log(window.sessionStorage);
+              },
+              error: function (data) {
+                  console.log('An error occurred.');
+                  $(".error-message").empty().append('Invalid Credentials');
+              },
+          });
         });
-    });
-</script>
-
-</body>
+    </script>
+  </body>
 </html>
