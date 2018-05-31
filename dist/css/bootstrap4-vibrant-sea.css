@@ -19,7 +19,8 @@
   --white: #fff;
   --gray: #6c757d;
   --gray-dark: #343a40;
-  --primary: #0f90ff;
+  /*--primary: #0f90ff;*/
+  --primary: #f7931e;
   --secondary: #10c1f2;
   --success: #31e68e;
   --info: #1b5fc3;
@@ -2199,9 +2200,12 @@ fieldset:disabled a.btn {
   pointer-events: none; }
 
 .btn-primary {
-  color: #fff;
+  /*color: #fff;
   background-color: #0f90ff;
-  border-color: #0f90ff; }
+  border-color: #0f90ff; */
+  color: #fff;
+  background-color: #f7931e;
+  border-color: #f7931e;}
   .btn-primary:hover {
     color: #fff;
     background-color: #007de8;
