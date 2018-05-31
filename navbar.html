@@ -12,15 +12,41 @@
           <a class="nav-link active" href="query_incident.html">Incidentes</a>
         </li>
       </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <ul class="navbar-nav mr-auto mt-2 mt-md-0">
-          <li class="nav-item active">
-            <a class="nav-link " href="login.html">Iniciar Sesion <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="signup.html">Registrarme</a>
-          </li>
-        </ul>
-      </form>
+      <div id="dynamic-menu" class="form-inline my-2 my-lg-0">
+      </div>
     </div>
 </nav>
+<script>
+  function logout(){
+      sessionStorage.removeItem("token");
+      window.location = "index.html"
+  };
+
+    $(document ).ready(function() {
+        if (window.sessionStorage.token) {
+            var username = window.sessionStorage.user;
+            var html = '<ul class="navbar-nav mr-auto mt-2 mt-md-0">\n' +
+                '          <li class="nav-item active">\n' +
+                '            <a class="nav-link " >' + username + ' <span class="sr-only">(current)</span></a>\n' +
+                '          </li>\n' +
+                '          <li class="nav-item active">\n' +
+                '            <a class=" nav-link" type="button" href="" onclick="logout()">Cerrar Sesion</a>\n' +
+                '          </li>\n' +
+                '        </ul>';
+            $('#dynamic-menu').html(html);
+
+        }
+        else{
+            var html = '<ul class="navbar-nav mr-auto mt-2 mt-md-0">\n' +
+                '          <li class="nav-item active">\n' +
+                '            <a class="nav-link " href="login.html">Iniciar Sesion <span class="sr-only">(current)</span></a>\n' +
+                '          </li>\n' +
+                '          <li class="nav-item active">\n' +
+                '            <a class="nav-link" href="signup.html">Registrarme</a>\n' +
+                '          </li>\n' +
+                '        </ul>';
+            $('#dynamic-menu').html(html);
+        }
+    });
+    logout
+</script>
