@@ -84,7 +84,6 @@
     <script type='text/javascript'>
         /* attach a submit handler to the form */
         $("#loginForm").submit(function(event) {
-
           /* stop form from submitting normally */
           event.preventDefault();
 
@@ -101,12 +100,12 @@
                   console.log(data);
                   var response_data = data;
                   window.sessionStorage.token = response_data.token;
+                  window.sessionStorage.user = response_data.user.NOMBRES;
+                  window.location = "index.html"
                   console.log(window.sessionStorage);
               },
               error: function (data) {
                   console.log('An error occurred.');
-                  // console.log(data);
-                  // document.getElementById('errorSpan').innerHTML = '...'
                   $(".error-message").empty().append('Invalid Credentials');
               },
           });
