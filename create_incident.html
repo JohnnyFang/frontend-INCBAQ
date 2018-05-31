@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>IncBAQ</title>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald:300,400|Roboto:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="dist/css/bootstrap4-vibrant-sea.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+
+</head>
+<body>
+<nav id="navigation-bar"></nav>
+<div class="container py-5">
+    <div class="row align-items-center">
+        <div class="col-sm-6 offset-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <!-- <h6 class="card-title">Start with a small group form</h6> -->
+                    <div class="ht-tm-codeblock ht-tm-btn-replaceable ht-tm-element ht-tm-element-inner">
+                        <form id="signupForm" action="http://206.81.15.248:3000/api/incidencias" method="post">
+                            <div  id="errorSpan" class='error-message'></div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Descripcion</label>
+                                <input name="descripcion" class="form-control" type="text" value="" id="example-text-input" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Categoria de incidente</label>
+                                <select class="custom-select js-example-basic-single"></select>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Predio <a href="#!" class="ht-tm-element btn btn-outline-primary">
+                                    <span class="fa fa-plus mr-0"></span></a>
+                                </label>
+                                <select class="custom-select js-predios"></select>
+                            </div>
+                            <div class="form-group">
+                                <label for="InputPassword">Contraseña</label>
+                                <div class="ht-tm-element ht-tm-element-inner">
+                                    <input name="password" class="form-control" type="password" value="" id="example-password-input">
+                                </div>
+                            </div>
+                            <input hidden name="tipo_usuario" value="1">
+                            <button type="submit" id="submitButton" class="btn btn-primary">Ingresar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script src="dist/js/loadNavbar.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+<script type='text/javascript'>
+    /* attach a submit handler to the form */
+    $("#signupForm").submit(function(event) {
+        /* stop form from submitting normally */
+        event.preventDefault();
+
+        /* get the action attribute from the <form action=""> element */
+        var $form = $( this ),
+            method = $form.attr('method'),
+            url = $form.attr( 'action' );
+        $.ajax({
+            type: method,
+            url: url,
+            data: $form.serialize(),
+            success: function (data) {
+                console.log('Submission was successful.');
+                console.log(data);
+                // var response_data = data;
+                // window.sessionStorage.token = response_data.token;
+                // window.sessionStorage.user = response_data.user.NOMBRES;
+                window.location = "query_incident.html"
+            },
+            error: function (data) {
+                console.log('An error occurred.');
+                $(".error-message").empty().append('Invalid Credentials');
+            },
+        });
+    });
+
+    //Select2 stuff
+    $(document).ready(function() {
+        $('.js-example-basic-single').select2({
+            ajax: {
+                url: "http://206.81.15.248:3000/api/categorias",
+                dataType: 'json',
+                placeholder: 'Search for a repository',
+                processResults: function (data) {
+                    // Tranforms the top-level key of the response object from 'items' to 'results'
+
+                    options =[]
+                    for (var i = 0; i < data.length; i++) {
+                        console.log(data[i]);
+                        options.push({
+                            "id": data[i].CODCATEGORIA,
+                            "text": data[i].NOMBRE
+                        });
+                    }
+                    return {
+                        results: options
+                    };
+                }
+            }
+        });
+        $('.js-predios').select2({
+            ajax: {
+                url: "http://206.81.15.248:3000/api/predios",
+                dataType: 'json',
+                placeholder: 'Search for a repository',
+                processResults: function (data) {
+                    // Tranforms the top-level key of the response object from 'items' to 'results'
+
+                    options =[]
+                    for (var i = 0; i < data.length; i++) {
+                        console.log(data[i]);
+                        options.push({
+                            "id": data[i].CODPREDIO,
+                            "text": data[i].BARRIO
+                        });
+                    }
+                    return {
+                        results: options
+                    };
+                }
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
