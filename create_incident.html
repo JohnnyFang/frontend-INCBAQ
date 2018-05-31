@@ -4,7 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>IncBAQ</title>
+    <title>Reportar Incidente | IncBAQ</title>
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Oswald:300,400|Roboto:400,700" rel="stylesheet">
     <link rel="stylesheet" href="dist/css/bootstrap4-vibrant-sea.min.css">
@@ -28,26 +28,72 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Categoria de incidente</label>
-                                <select class="custom-select js-example-basic-single"></select>
+                                <select name="codcategoria" class="custom-select js-example-basic-single"></select>
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Predio <a href="#!" class="ht-tm-element btn btn-outline-primary">
-                                    <span class="fa fa-plus mr-0"></span></a>
+                                <label for="exampleInputEmail1">Predio
+                                    <a href="" class="ht-tm-element btn btn-outline-primary" data-toggle="modal" data-target="#exampleModal">
+                                        <span class="fa fa-plus mr-0"></span>
+                                    </a>
                                 </label>
-                                <select class="custom-select js-predios"></select>
+                                <select name="codpredio" class="custom-select js-predios"></select>
                             </div>
                             <div class="form-group">
-                                <label for="InputPassword">Contraseña</label>
-                                <div class="ht-tm-element ht-tm-element-inner">
-                                    <input name="password" class="form-control" type="password" value="" id="example-password-input">
-                                </div>
+                                <label for="InputPassword">Calificacion (usar solo numeros)</label>
+                                <input name="calificacion" class="form-control" type="number" value="" >
                             </div>
                             <input hidden name="tipo_usuario" value="1">
+                            <input  hidden name="token" value="">
                             <button type="submit" id="submitButton" class="btn btn-primary">Ingresar</button>
                         </form>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form id="predioForm" action="http://206.81.15.248:3000/api/predios" method="post">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Agregar Predio</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                        <div  id="errorSpan" class='error-message'></div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Barrio</label>
+                            <input name="barrio" class="form-control" type="text" value=""  placeholder="" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Direccion</label>
+                            <input name="direccion" class="form-control" type="text" value=""  placeholder="" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Municipio</label>
+                            <input name="municipio" class="form-control" type="text" value=""  placeholder="" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Geo loc x (usar solo numeros)</label>
+                            <input name="geolocax" class="form-control" type="text" value=""  placeholder="" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Geo loc y (usar solo numeros)</label>
+                            <input name="geolocay" class="form-control" type="text" value=""  placeholder="" required>
+                        </div>
+                        <input id="token-input" hidden name="token" value="">
+                        <!--<button type="submit" id="submitPredioButton" class="btn btn-primary">Ingresar</button>-->
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    <button type="submit" id="submitPredioButton" class="btn btn-primary">Guardar</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
@@ -65,10 +111,14 @@
         /* stop form from submitting normally */
         event.preventDefault();
 
+        var pform = document.forms['signupForm'];
+        pform.elements['token'].value = window.sessionStorage.token;
+
         /* get the action attribute from the <form action=""> element */
         var $form = $( this ),
             method = $form.attr('method'),
             url = $form.attr( 'action' );
+        console.log($form.serialize())
         $.ajax({
             type: method,
             url: url,
@@ -83,7 +133,39 @@
             },
             error: function (data) {
                 console.log('An error occurred.');
+                console.log(data);
                 $(".error-message").empty().append('Invalid Credentials');
+            },
+        });
+    });
+
+    $("#predioForm").submit(function(event) {
+        /* stop form from submitting normally */
+        event.preventDefault();
+
+        var pform = document.forms['predioForm'];
+        pform.elements['token'].value = window.sessionStorage.token;
+
+        // $("#predioForm token-input").val(window.sessionStorage.token);
+        // $('#predioForm').field('token', window.sessionStorage.token);
+
+        /* get the action attribute from the <form action=""> element */
+        var $form = $( this ),
+            method = $form.attr('method'),
+            url = $form.attr( 'action' );
+        console.log( $form.serialize());
+        $.ajax({
+            type: method,
+            url: url,
+            data: $form.serialize(),
+            success: function (data) {
+                console.log('Submission was successful.');
+                console.log(data);
+            },
+            error: function (data) {
+                console.log('An error occurred.');
+                console.log(data);
+                $(".error-message").empty().append('Asegurese de haber iniciado sesion y vuelva a intentarlo!');
             },
         });
     });
