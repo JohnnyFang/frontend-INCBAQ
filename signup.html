@@ -7,16 +7,18 @@
     <title>IncBAQ</title>
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Oswald:300,400|Roboto:400,700" rel="stylesheet">
-    <link rel="stylesheet" href="dist/css/bootstrap4-vibrant-sea.min.css">
+    <link rel="stylesheet" href="dist/css/bootstrap4-vibrant-sea.css">
+    <link rel="stylesheet" href="dist/css/default.css">
   </head>
-  <body>
+  <body class="bg-sign-up">
     <nav id="navigation-bar"></nav>
     <div class="container py-5">
       <div class="row align-items-center">
         <div class="col-sm-6 offset-md-3">
-          <div class="card">
+          <div class="card bg-card">
             <div class="card-body">
               <!-- <h6 class="card-title">Start with a small group form</h6> -->
+              <img src="dist/images/logoSignUp.png" class="img-sign-up">
               <div class="ht-tm-codeblock ht-tm-btn-replaceable ht-tm-element ht-tm-element-inner">
                 <form id="signupForm" action="http://206.81.15.248:3000/api/users/signup" method="post">
                   <div  id="errorSpan" class='error-message'></div>
@@ -36,7 +38,9 @@
                     </div>
                   </div>
                   <input hidden name="tipo_usuario" value="1">
-                  <button type="submit" id="submitButton" class="btn btn-primary">Ingresar</button>
+                  <div class="text-center">
+                      <button type="submit" id="submitButton" name="submitButton" value="Submit" class="btn btn-primary">Registrar</button>
+                    </div>
                 </form>
               </div>
             </div>

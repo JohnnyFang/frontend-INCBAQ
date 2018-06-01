@@ -7,65 +7,37 @@
     <title>IncBAQ</title>
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Oswald:300,400|Roboto:400,700" rel="stylesheet">
-    <link rel="stylesheet" href="dist/css/bootstrap4-vibrant-sea.min.css">
+    <link rel="stylesheet" href="dist/css/bootstrap4-vibrant-sea.css">
+    <link rel="stylesheet" href="dist/css/default.css">
   </head>
-  <body>
-
-
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary ht-tm-element">
-          <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
-          data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <!-- <a class="navbar-brand" href="#!">Navbar</a> -->
-
-          <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-            <ul class="navbar-nav mr-auto mt-2 mt-md-0">
-              <li class="nav-item active">
-                <a class="nav-link" href="#!">Home <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" href="#!">Incidentes</a>
-              </li>
-            </ul>
-            <form class="form-inline my-2 my-lg-0">
-              <ul class="navbar-nav mr-auto mt-2 mt-md-0">
-                <li class="nav-item active">
-                  <a class="nav-link " href="#!">Iniciar Sesion <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item active">
-                  <a class="nav-link" href="#!">Registrarme</a>
-                </li>
-
-              </ul>
-            </form>
-          </div>
-        </nav>
-        <div class="container py-5">
-          <div class="row align-items-center">
-            <div class="col-sm-6 offset-md-3">
-              <div class="card">
-                <div class="card-body">
-                  <!-- <h6 class="card-title">Start with a small group form</h6> -->
-
-                  <div class="ht-tm-codeblock ht-tm-btn-replaceable ht-tm-element ht-tm-element-inner">
-                    <form  id="loginForm" action="http://206.81.15.248:3000/api/users/login" method="post">
-                     <!-- <form  id="loginForm" method="post"> -->
-                     <div  id="errorSpan" class='error-message'></div>
-                      <div class="form-group">
-                        <label for="exampleInputEmail1">Correo Electronico</label>
-                        <input name="email" type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Entre Correo Electronico">
-                        <small id="emailHelp" class="form-text text-muted">Nosotros jamas compartiremos tu correo electronico</small>
-                      </div>
-                      <div class="form-group">
-                        <label for="InputPassword">Contraseña</label>
-                        <div class="ht-tm-element ht-tm-element-inner">
-                          <input class="form-control" name="password" type="password" value="" id="example-password-input">
-                        </div>
-                      </div>
-                      <button  type="submit" id="submitButton"  name="submitButton" value="Submit" class="btn btn-primary">Ingresar</button>
-                    </form>
-
+  <body class="bg-login">
+    <nav id="navigation-bar"></nav>
+    <div class="container py-5">
+      <div class="row align-items-center">
+        <div class="col-sm-6 offset-md-3">
+          <div class="card bg-card">
+            <div class="card-body">
+              <!-- <h6 class="card-title">Start with a small group form</h6> -->
+              <img src="dist/images/logoSignUp.png" class="img-sign-up">
+              <div class="ht-tm-codeblock ht-tm-btn-replaceable ht-tm-element ht-tm-element-inner">
+                <form  id="loginForm" action="http://206.81.15.248:3000/api/users/login" method="post">
+                  <!-- <form  id="loginForm" method="post"> -->
+                  <div  id="errorSpan" class='error-message'></div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Correo Electronico</label>
+                    <input name="email" type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Entre Correo Electronico">
+                    <small id="emailHelp" class="form-text text-muted">Nosotros jamas compartiremos tu correo electronico</small>
+                  </div>
+                  <div class="form-group">
+                    <label for="InputPassword">Contraseña</label>
+                    <div class="ht-tm-element ht-tm-element-inner">
+                      <input class="form-control" name="password" type="password" value="" id="example-password-input">
+                    </div>
+                  </div>
+                  <div class="text-center">
+                    <button type="submit" id="submitButton" name="submitButton" value="Submit" class="btn btn-primary">Ingresar</button>
+                  </div>
+                </form>
               </div>
             </div>
           </div>
