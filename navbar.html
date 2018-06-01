@@ -19,6 +19,8 @@
 <script>
   function logout(){
       sessionStorage.removeItem("token");
+      sessionStorage.removeItem("user");
+      sessionStorage.removeItem("user_type");
       window.location = "index.html"
   };
 
@@ -48,5 +50,4 @@
             $('#dynamic-menu').html(html);
         }
     });
-    logout
 </script>
